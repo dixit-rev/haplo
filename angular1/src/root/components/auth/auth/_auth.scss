@@ -1,0 +1,118 @@
+@import 'auth.variables';
+
+// modify intl-tel-input defaults
+.intl-tel-input {
+  display: block;
+}
+
+.auth {
+  margin: 0 auto;
+  width: 80%;
+
+  @media screen and (min-width: $screen-sm) {
+    width: 100%;
+  }
+
+  &-cta {
+    color: $cta-color;
+    font-size: $cta-fs-sm;
+    font-style: italic;
+    margin: 1em 0;
+    padding: 0;
+    text-align: center;
+
+    @media screen and (min-width: $screen-sm) {
+      font-size: $cta-fs;
+      text-align: left;
+    }
+  }
+
+  &-form {
+
+    &-button {
+      background: $form-btn-bg;
+      border-radius: 100px;
+      border: 2px solid $form-btn-border-color;
+      color: $form-btn-color;
+      font-size: $form-btn-fs;
+      height: 3.25em;
+      left: 50%;
+      position: relative;
+      transform: translateX(-50%);
+      transition: background .2s, color .2s;
+      width: 10.5em;
+
+      @media screen and (min-width: $screen-xs) {
+        font-size: $form-btn-fs-md;
+      }
+
+      @media screen and (min-width: $screen-sm) {
+        left: 50%;
+      }
+
+      &:hover {
+        background: $form-btn-bg-hover;
+        color: $form-btn-color-hover;
+        transition: background .2s, color .2s;
+      }
+
+      &_disabled {
+
+        &:hover {
+          background: $form-btn-bg;
+          color: $form-btn-color;
+        }
+      }
+    }
+
+    &-email,
+    &-displayname,
+    &-username,
+    &-phone,
+    &-password,
+    &-verify {
+      margin: .75em 0 0;
+      width: 100%;
+    }
+
+    &-error {
+      color: $error-color;
+      font-size: $error-fs;
+      margin: .25em 0 0;
+      padding: 0;
+    }
+
+    &-fail {
+      color: $fail-color;
+    }
+
+    input {
+      background: none;
+      border: 0;
+      border-bottom: 1px solid;
+      border-color: $input-border-color;
+      transition: border-color .2s;
+      width: 100%;
+
+      &:focus {
+        border-bottom: 1px solid;
+        border-color: $input-border-color-focus;
+        transition: border-color .2s;
+      }
+
+    }
+
+    label {
+      display: block;
+      margin: .25em 0;
+      width: 100%;
+    }
+
+    &-success,
+    &-fail {
+      font-size: $confirmation-fs;
+      margin: 1.5em 0;
+      text-align: center;
+    }
+  }
+}

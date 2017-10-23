@@ -1,0 +1,179 @@
+<div class="auth">
+  <p class="auth-cta" ng-show="$ctrl.formType === 'signUp'">
+    Create a uSTADIUM account below.
+  </p>
+  <p class="auth-cta" ng-show="$ctrl.formType === 'forgotPassword'">
+    Enter your uSTADIUM account information below.
+  </p>
+  <p class="auth-cta" ng-show="$ctrl.formType === 'login'">
+    Sign in to uSTADIUM below.
+  </p>
+  <p class="auth-cta" ng-show="$ctrl.formType === 'verify'">
+    Enter your uSTADIUM verification code below.
+  </p>
+  <p class="auth-cta" ng-show="$ctrl.formType === 'resetPassword'">
+    Enter your new uSTADIUM password below.
+  </p>
+  <form
+    class="auth-form"
+    name="authForm"
+    novalidate
+    ng-class="{'new': $ctrl.formType === 'signUp'}"
+    ng-submit="$ctrl.submit(authForm)"
+  >
+  <div
+    class="auth-form-username"
+    ng-if="$ctrl.formType !== 'verify'"
+  >
+    <label for="username">Username</label>
+    <input
+      name="username"
+      placeholder="JohnnyFaz"
+      required
+      type="text"
+      ng-minlength="1"
+      ng-model="$ctrl.user.username"
+      ng-pattern="/^\w+$/"
+    >
+    <p class="auth-form-error" ng-show="authForm.username.$invalid && !authForm.username.$pristine">
+      Your username can include letters, numbers, and underscores.
+    </p>
+  </div>
+  <div class="auth-form-displayname" ng-if="$ctrl.formType === 'signUp'">
+    <label for="displayname">Display Name</label>
+    <input
+      name="displayname"
+      placeholder="Johnny Faz"
+      required
+      type="text"
+      ng-minlength="1"
+      ng-model="$ctrl.user.displayName"
+    >
+    <p class="auth-form-error" ng-show="authForm.displayName.$invalid && !authForm.displayName.$pristine">
+      Your display name must contain at least one character.
+    </p>
+  </div>
+  <div class="auth-form-email" ng-if="$ctrl.formType === 'signUp' || $ctrl.formType === 'verify'">
+    <label for="email">Email</label>
+    <input
+      name="email"
+      placeholder="JohnnyFaz@gmail.com"
+      required
+      type="email"
+      ng-model="$ctrl.user.email"
+    >
+    <p class="auth-form-error" ng-show="authForm.email.$invalid && !authForm.email.$pristine">
+      Please enter a valid email address.
+    </p>
+  </div>
+  <div class="auth-form-email" ng-if="$ctrl.formType === 'forgotPassword'">
+    <label for="email">Email</label>
+    <input
+      name="email"
+      placeholder="JohnnyFaz@gmail.com"
+      type="email"
+      ng-model="$ctrl.user.email"
+      ng-required="!$ctrl.user.phone"
+    >
+    <p class="auth-form-error" ng-show="authForm.email.$invalid && !authForm.email.$pristine">
+      Please enter a valid email address.
+    </p>
+  </div>
+  <div class="auth-form-phone" ng-if="$ctrl.formType === 'signUp'">
+    <label for="phone">Phone</label>
+    <input
+      autocomplete="off"
+      class="dash-input"
+      minlength="4"
+      maxlength="14"
+      name="phone"
+      required
+      type="text"
+      ng-model="$ctrl.user.phone"
+      ng-intl-tel-input
+    >
+    <p class="auth-form-error" ng-show="authForm.phone.$invalid && !authForm.phone.$pristine">
+      Please enter a valid phone number.
+    </p>
+  </div>
+  <div class="auth-form-phone" ng-if="$ctrl.formType === 'forgotPassword'">
+    <label for="phone">Phone</label>
+    <input
+      autocomplete="off"
+      class="dash-input"
+      minlength="4"
+      maxlength="14"
+      name="phone"
+      type="text"
+      ng-model="$ctrl.user.phone"
+      ng-required="!$ctrl.user.email"
+      ng-intl-tel-input
+    >
+    <p class="auth-form-error" ng-show="authForm.phone.$invalid && !authForm.phone.$pristine">
+      Please enter a valid phone number.
+    </p>
+  </div>
+  <div class="auth-form-password" ng-if="$ctrl.formType !== 'forgotPassword' && $ctrl.formType !== 'verify'">
+    <label for="password">Password</label>
+    <input
+      name="password"
+      placeholder="password"
+      required
+      type="password"
+      ng-minlength="5"
+      ng-model="$ctrl.user.password"
+      password-reveal
+    >
+    <p class="auth-form-error" ng-show="authForm.password.$invalid && !authForm.password.$pristine">
+      Your password must contain at least five characters.
+    </p>
+  </div>
+  <div class="auth-form-verify" ng-if="$ctrl.formType === 'verify'">
+    <label for="verify">Verificaton Code</label>
+    <input
+      name="verify"
+      placeholder="1234567"
+      required
+      type="text"
+      ng-maxlength="7"
+      ng-minlength="7"
+      ng-model="$ctrl.user.verifyCode"
+      ng-pattern="/^\d+$/"
+    >
+    <p class="auth-form-error" ng-show="authForm.verify.$invalid && !authForm.verify.$pristine">
+      Your verification code should contain seven numbers.
+    </p>
+  </div>
+  <div class="auth-form-verify" ng-if="$ctrl.formType === 'resetPassword'">
+    <label for="verify">Verificaton Code</label>
+    <input
+      name="verify"
+      placeholder="1234567"
+      required
+      type="text"
+      ng-maxlength="7"
+      ng-minlength="7"
+      ng-model="$ctrl.user.code"
+      ng-pattern="/^\d+$/"
+    >
+    <p class="auth-form-error" ng-show="authForm.verify.$invalid && !authForm.verify.$pristine">
+      Your verification code should contain seven numbers.
+    </p>
+  </div>
+  <p class="auth-form-fail" ng-if"$ctrl.fail">
+    {{$ctrl.fail}}
+  </p>
+  <p class="auth-form-success" ng-if"$ctrl.success" ng-hide="$ctrl.formType === 'login'">
+    {{$ctrl.success}}
+  </p>
+  <button
+    class="auth-form-button"
+    name="button"
+    type="submit"
+    ng-class="{'auth-form-button_disabled': authForm.$invalid}"
+    ng-disabled="authForm.$invalid"
+  >
+    {{$ctrl.submitType}}
+  </button>
+  </form>
+</div>

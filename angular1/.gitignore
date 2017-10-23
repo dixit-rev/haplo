@@ -1,0 +1,27 @@
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+packge-lock.json
+npm-debug.log
+node_modules/
+.idea/
+# bower dir
+libs/
+
+# build dir
+dist/
+
+# release dir
+dest/
+
+# Mac OS X metadata files
+.DS_Store

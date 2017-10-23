@@ -1,0 +1,18 @@
+<div class="app">
+  <app-header
+    user="$ctrl.user"
+    on-logout="$ctrl.logout($event)"
+  ></app-header>
+  <div ng-if="$ctrl.loading" class="app-loading">
+    <img src="./app-images/loading.gif" alt="">
+  </div>
+  <welcome ng-if="$ctrl.guest" autoscroll></welcome>
+  <div ng-if="$ctrl.user" class="container-fluid" autoscroll>
+    <div class="row">
+      <home></home>
+      <app-footer
+        copyright-date="$ctrl.copyrightDate"
+      ></app-footer>
+    </div>
+  </div>
+</div>

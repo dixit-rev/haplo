@@ -1,0 +1,63 @@
+<nav>
+  <ul class="auth-nav">
+    <li *ngIf="formType === 'signUp'">
+      <a
+        href=""
+        (click)="changeForm('login', 'Login')"
+      >
+        Already a member?
+      </a>
+    </li>
+    <li *ngIf="formType === 'login'">
+      <a
+        href=""
+        (click)="changeForm('signUp', 'Create Account')"
+      >
+        Need an account?
+      </a>
+    </li>
+    <li
+      *ngIf="formType === 'login'">
+      <a
+        href=""
+        (click)="changeForm('forgotPassword', 'Submit')"
+      >
+        Forgot password?
+      </a>
+    </li>
+    <li *ngIf="formType === 'forgotPassword'">
+      <a
+        href=""
+        (click)="changeForm('login', 'Login')"
+      >
+        Remember password?
+      </a>
+    </li>
+    <li *ngIf="formType === 'forgotPassword'">
+      <a
+        href=""
+        (click)="changeForm('resetPassword', 'Reset Password')"
+      >
+        Reset your password.
+      </a>
+    </li>
+    <li *ngIf="formType === 'login' || formType === 'signUp'">
+      <a
+        href=""
+        (click)="changeForm('verify', 'Verify')"
+      >
+        Enter a verification code.
+      </a>
+    </li>
+    <li
+      *ngIf="formType === 'resetPassword' || formType === 'verify'"
+    >
+      <a
+        href=""
+        (click)="changeForm('login', 'Login')"
+      >
+        Start over.
+      </a>
+    </li>
+  </ul>
+</nav>

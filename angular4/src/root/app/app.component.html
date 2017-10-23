@@ -1,0 +1,18 @@
+<div class="app">
+  <app-header
+    [user]="user"
+    (onLogout)="logout($event)"
+  ></app-header>
+  <div *ngIf="loading" class="app-loading">
+    <img src="/assets/images/app-images/loading.gif" alt="">
+  </div>
+  <welcome *ngIf="guest" autoscroll></welcome>
+  <div *ngIf="user" class="container-fluid" autoscroll>
+  	<home></home>	
+    <div class="row">
+      <app-footer
+        [copyrightDate]="copyrightDate"
+      ></app-footer>
+    </div>
+  </div>
+</div>

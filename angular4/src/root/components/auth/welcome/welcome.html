@@ -1,0 +1,45 @@
+<main class="welcome" role="main">
+  <section class="cta">
+    <h1 class="cta-header">Welcome to uSTADIUM</h1>
+    <div class="cta-inner">
+    <div class="cta-form">
+      <auth
+        [fail]="fail"
+        [formType]="formType"
+        (onSubmit)="authUser($event)"
+        [submitType]="submitType"
+        [success]="success"
+        [user]="user"
+      ></auth>
+      
+    </div>
+    </div>
+  </section>
+  <section class="download">
+    <div class="download-content">
+      <h2 class="download-header">Download our mobile app!</h2>
+      <ul class="download-links">
+        <li class="download-link">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.ustadium.android&hl=en"
+          >
+            <img
+              alt="Get uStadium on Google Play."
+              src="/assets/images/welcome-images/googlePlay@2x.png"
+            >
+          </a>
+        </li>
+        <li class="download-link">
+          <a
+            href="https://itunes.apple.com/us/app/ustadium/id1184610766?mt=8"
+          >
+          <img
+            alt="Get uStadium on the Apple App Store"
+            src="/assets/images/welcome-images/appStore@2x.png"
+          >
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>

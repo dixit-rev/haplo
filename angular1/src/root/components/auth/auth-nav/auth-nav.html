@@ -1,0 +1,63 @@
+<nav>
+  <ul class="auth-nav">
+    <li ng-if="$ctrl.formType === 'signUp'">
+      <a
+        href=""
+        ng-click="$ctrl.changeForm('login', 'Login')"
+      >
+        Already a member?
+      </a>
+    </li>
+    <li ng-if="$ctrl.formType === 'login'">
+      <a
+        href=""
+        ng-click="$ctrl.changeForm('signUp', 'Create Account')"
+      >
+        Need an account?
+      </a>
+    </li>
+    <li
+      ng-if="$ctrl.formType === 'login'">
+      <a
+        href=""
+        ng-click="$ctrl.changeForm('forgotPassword', 'Submit')"
+      >
+        Forgot password?
+      </a>
+    </li>
+    <li ng-if="$ctrl.formType === 'forgotPassword'">
+      <a
+        href=""
+        ng-click="$ctrl.changeForm('login', 'Login')"
+      >
+        Remember password?
+      </a>
+    </li>
+    <li ng-if="$ctrl.formType === 'forgotPassword'">
+      <a
+        href=""
+        ng-click="$ctrl.changeForm('resetPassword', 'Reset Password')"
+      >
+        Reset your password.
+      </a>
+    </li>
+    <li ng-if="$ctrl.formType === 'login' || $ctrl.formType === 'signUp'">
+      <a
+        href=""
+        ng-click="$ctrl.changeForm('verify', 'Verify')"
+      >
+        Enter a verification code.
+      </a>
+    </li>
+    <li
+      ng-if="$ctrl.formType === 'resetPassword' || $ctrl.formType === 'verify'"
+    >
+      <a
+        href=""
+        ng-click="$ctrl.changeForm('login', 'Login')"
+      >
+        Start over.
+      </a>
+    </li>
+  </ul>
+</nav>

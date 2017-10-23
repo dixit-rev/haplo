@@ -1,0 +1,20 @@
+@import 'auth-nav.variables';
+
+.auth-nav {
+  font-size: $auth-nav-fs;
+  list-style-type: none;
+  margin: 2em 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+
+  li {
+    display: block;
+    margin: 1em 0;
+
+    @media screen and (min-width: $screen-xs) {
+      display: inline-block;
+      margin: .5em .25em;
+    }
+  }
+}

@@ -1,0 +1,151 @@
+@import 'welcome.variables';
+
+.cta {
+  margin: auto;
+  width: 80%;
+
+  @media screen and (min-width: $screen-sm) {
+    background: url('./components/auth/welcome/welcome-images/mobile@2x.png') no-repeat right bottom;
+    background-size: 25%;
+  }
+
+  @media screen and (min-width: $screen-md) {
+    background-size: 40%;
+    height: 90%;
+    margin: 3em 0 1em 5%;
+    width: 50%;
+  }
+
+  @media screen and (min-width: $screen-lg) {
+    background-size: 35%;
+  }
+
+  &-form {
+    margin: 0 auto;
+    width: 100%;
+
+    @media screen and (min-width: $screen-xs) {
+      width: 80%;
+    }
+
+    @media screen and (min-width: $screen-sm) {
+      margin: 0;
+      width: 50%;
+    }
+
+    @media screen and (min-width: $screen-md) {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  }
+
+  &-header {
+    font-size: $cta-header-fs;
+    margin-bottom: 1.25em;
+    text-align: center;
+
+    @media screen and (min-width: $screen-xs) {
+      font-size: $cta-header-fs-xs;
+    }
+
+    @media screen and (min-width: $screen-sm) {
+      font-size: $cta-header-fs-sm;
+
+    }
+
+    @media screen and (min-width: $screen-md) {
+      margin-bottom: 0;
+      text-align: left;
+    }
+  }
+
+  &-inner {
+    height: 100%;
+    position: relative;
+  }
+}
+
+.download {
+  background: url('./components/auth/welcome/welcome-images/stadium.jpg') no-repeat bottom left;
+  background-size: 100%;
+  height: 300px;
+  position: relative;
+
+
+  @media screen and (min-width: $screen-md) {
+    background: none;
+    left: 55%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &-content {
+    color: $download-content-color;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+
+    @media screen and (min-width: $screen-md) {
+      transform: none;
+    }
+
+  }
+
+  &-header {
+    font-size: $download-header-fs;
+    margin: 0 0 1.25em;
+
+    @media screen and (min-width: $screen-xs) {
+      font-size: $download-header-fs-xs;
+    }
+
+  }
+
+  &-link {
+    list-style-type: none;
+    margin: 10px 0;
+
+    @media screen and (min-width: $screen-sm) {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    img {
+      max-width: 140px;
+    }
+  }
+
+  &-links {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.welcome {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 60px;
+
+  @media screen and (min-width: $screen-md) {
+    background: url('./components/auth/welcome/welcome-images/stadium.jpg') no-repeat;
+    background-attachment: fixed;
+    background-position: top 0 left 100%;
+    background-size: 45% 600px;
+    height: 540px;
+    max-height: 600px;
+  }
+
+  @media screen and (min-width: $screen-lg) {
+    background: url('./components/auth/welcome/welcome-images/stadium@2x.jpg') no-repeat;
+    background-attachment: fixed;
+    background-position: top 0 left 100%;
+    background-size: 45% 600px;
+  }
+}
